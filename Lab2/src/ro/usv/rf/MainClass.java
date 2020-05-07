@@ -8,6 +8,7 @@ public class MainClass {
 	
 	
 	public static void main(String[] args) {
+		//read data set
 		double[][] learningSet = FileUtils.readLearningSetFromFile("in.txt");
 		
 		int numberOfForms = learningSet.length;
@@ -28,7 +29,6 @@ public class MainClass {
 		// since the last column represent the weights, the number of features is now learningSet[0].length - 1
 		numberOfFeatures = learningSet[0].length - 1;
 		
-
 		Double[] weights = new Double[numberOfForms];
 		int weightColumnIndex = learningSet[0].length - 1;
 		for (int formIndex = 0; formIndex < numberOfForms; formIndex++)
@@ -94,8 +94,13 @@ public class MainClass {
 	
 	private static double[][] autoscaleLearningSet (double[][] learningSet)
 	{
-		double[][] autoscaledLearningSet = new double[learningSet.length][];
+		double[][] autoscaledLearningSet = new double[learningSet.length][learningSet[0].length];
 		//.. your code here
+//		for (int i=0 ;i <learningSet.length;i++)
+//			for(int j=0; j < learningSet[0].length;j++ )
+//			{
+//				learningSet[i][j] = learningSet[i][j] - 
+//			}
 		return autoscaledLearningSet;
 	}
 

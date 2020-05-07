@@ -80,16 +80,35 @@ public class StatisticsUtils {
 		return frequencyOfOccurence;
 	}
 
-	protected static double calculateFeatureDispersion(Double[] feature, double featureWeightedAverage) {
+//	protected static double calculateFeatureDispersion(Double[] feature, double featureWeightedAverage) {
+//		double featureDispersion = 0.0;
+//		double sum = 0;
+//		for (int k = 0; k<feature.length; k++)
+//		{
+//			sum += Math.pow(feature[k]-featureWeightedAverage, 2);
+//		}
+//		featureDispersion = (Double.valueOf(1)/(feature.length-1))*sum;
+//		return featureDispersion;
+//	}
+//	
+	protected static double calculateFeatureDispersion(Double[] feature1,Double[] feature2, double featureWeightedAverage1, double featureWeightedAverage2) {
 		double featureDispersion = 0.0;
 		double sum = 0;
-		for (int k = 0; k<feature.length; k++)
+		for (int k = 0; k<feature1.length; k++)
 		{
-			sum += Math.pow(feature[k]-featureWeightedAverage, 2);
+			sum += Math.pow(feature1[k]-featureWeightedAverage1, 2);
 		}
-		featureDispersion = (Double.valueOf(1)/(feature.length-1))*sum;
-		return featureDispersion;
+		featureDispersion = (Double.valueOf(1)/(feature1.length-1))*sum;
+		
+		for (int k = 0; k<feature2.length; k++)
+		{
+			sum += Math.pow(feature2[k]-featureWeightedAverage2, 2);
+		}
+		featureDispersion += (Double.valueOf(1)/(feature2.length-1))*sum;
+		
+		return featureDispersion ;
 	}
+	
 
 	protected static double calculateCovariance(Double[] feature1, Double[] feature2, double feature1WeightedAverage,
 			double feature2WeightedAverage) {
